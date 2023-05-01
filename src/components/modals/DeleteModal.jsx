@@ -4,22 +4,26 @@ import theme from "../../theme/theme";
 import { View } from "react-native";
 import { StyledText } from "../styles";
 
-export default function DeleteModal() {
+export default function DeleteModal({ deleteNote, viewModal, visible }) {
   return (
-    <Modal animationType="slide" visible={true} transparent={true}>
+    <Modal animationType="slide" visible={visible} transparent={true}>
       <View style={styles.container}>
         <View style={styles.content}>
-          <StyledText color="third" fontSize="subheading" fontWeight="bold">
+          <StyledText fontSize="subheading" fontWeight="bold">
             ¿eliminar la nota?
           </StyledText>
           <View style={styles.buttons}>
-            <TouchableOpacity>
-              <StyledText color="third" fontSize="subheading" fontWeight="bold">
+            <TouchableOpacity onPress={viewModal}>
+              <StyledText fontSize="subheading" fontWeight="bold">
                 Cancelar
               </StyledText>
             </TouchableOpacity>
-            <TouchableOpacity>
-              <StyledText color="third" fontSize="subheading" fontWeight="bold">
+            <TouchableOpacity onPress={deleteNote}>
+              <StyledText
+                fontSize="subheading"
+                fontWeight="bold"
+                color="warning"
+              >
                 Eliminar
               </StyledText>
             </TouchableOpacity>
@@ -41,7 +45,7 @@ const styles = StyleSheet.create({
     gap: 20,
     width: "80%",
     height: "40%",
-    backgroundColor: `rgb(${theme.colors.secondary})`,
+    backgroundColor: `rgb(${theme.colors.primary})`,
     borderRadius: 20,
     shadowColor: `rgb(${theme.colors.third})`,
     shadowOffset: {

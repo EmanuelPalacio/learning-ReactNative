@@ -8,6 +8,9 @@ const theme = {
     secondaryText: "134 144 177",
     thirdText: "32 36 42",
   },
+  alertColors: {
+    warning: "red",
+  },
   fontSizes: {
     body: 16,
     subheading: 20,
