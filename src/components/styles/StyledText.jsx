@@ -24,7 +24,7 @@ export default function StyledText({
 
 const styles = StyleSheet.create({
   text: {
-    color: `rgb(${theme.colors.primaryText})`,
+    color: theme.colors.primaryText,
     fontSize: theme.fontSizes.body,
     fontFamily: theme.fontFamily.main,
     fontWeight: theme.fontWeights.normal,
