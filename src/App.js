@@ -17,6 +17,6 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     marginTop: statusBarHeight,
-    backgroundColor: `rgb(${theme.colors.primary})`,
+    backgroundColor: theme.colors.primary,
   },
 });

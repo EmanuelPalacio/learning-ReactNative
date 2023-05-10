@@ -12,7 +12,7 @@ export default function StyledInput({
     <View style={styles.container}>
       <TextInput
         placeholder={placeholder}
-        placeholderTextColor={`rgb(${theme.colors.primaryText})`}
+        placeholderTextColor={theme.colors.primaryText}
         value={value}
         onChangeText={onChangeText}
         keyboardType={keyboardType === "email" ? "email-address" : undefined}
@@ -30,11 +30,11 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: `rgb(${theme.colors.secondary})`,
+    borderColor: theme.colors.secondary,
   },
   input: {
     flex: 1,
-    color: `rgb(${theme.colors.primaryText})`,
+    color: theme.colors.primaryText,
     fontSize: theme.fontSizes.subheading,
     fontFamily: theme.fontFamily.main,
     padding: 5,

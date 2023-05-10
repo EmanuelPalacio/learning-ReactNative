@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     width: 300,
     minHeight: 100,
     padding: 20,
-    backgroundColor: `rgb(${theme.colors.secondary})`,
+    backgroundColor: theme.colors.secondary,
   },
   delete: {
     position: "absolute",

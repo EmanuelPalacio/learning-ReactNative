@@ -45,9 +45,9 @@ const styles = StyleSheet.create({
     gap: 20,
     width: "80%",
     height: "40%",
-    backgroundColor: `rgb(${theme.colors.primary})`,
+    backgroundColor: theme.colors.primary,
     borderRadius: 20,
-    shadowColor: `rgb(${theme.colors.third})`,
+    shadowColor: theme.colors.third,
     shadowOffset: {
       width: 0,
       height: 12,

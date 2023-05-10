@@ -40,13 +40,13 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSizes.header,
   },
   colorSecondary: {
-    color: `rgb(${theme.colors.secondaryText})`,
+    color: theme.colors.secondaryText,
   },
   colorThird: {
-    color: `rgb(${theme.colors.thirdText})`,
+    color: theme.colors.thirdText,
   },
   colorFourth: {
-    color: `rgb(${theme.colors.fourthText})`,
+    color: theme.colors.fourthText,
   },
   warning: {
     color: theme.alertColors.warning,

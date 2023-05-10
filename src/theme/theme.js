@@ -1,12 +1,12 @@
 const theme = {
   colors: {
-    primary: "32 36 42",
-    secondary: "118 244 222",
-    third: "0 78 189",
-    fourth: "207 218 251",
-    primaryText: "207 218 251",
-    secondaryText: "134 144 177",
-    thirdText: "32 36 42",
+    primary: "#20242A",
+    secondary: "#76F4DE",
+    third: "#004EBD",
+    fourth: "#CFDAFB",
+    primaryText: "#CFDAFB",
+    secondaryText: "#8690B1",
+    thirdText: "#20242A",
   },
   alertColors: {
     warning: "red",
