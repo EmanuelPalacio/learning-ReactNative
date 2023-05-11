@@ -22,7 +22,11 @@ export default function StyledBtn({
   ];
   return (
     <TouchableOpacity style={btn} onPress={action}>
-      <StyledText color="third" fontSize={fontSize && fontSize}>
+      <StyledText
+        color="third"
+        fontWeight="bold"
+        fontSize={fontSize && fontSize}
+      >
         {text}
       </StyledText>
     </TouchableOpacity>

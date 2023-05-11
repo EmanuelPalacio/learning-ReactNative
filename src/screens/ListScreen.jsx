@@ -54,7 +54,7 @@ export default function ListScreen({ notes, addNote, viewModal, favorite }) {
             >
               <AntDesign name="delete" size={20} color="black" />
             </TouchableOpacity>
-            <StyledText color="third" fontSize="subheading">
+            <StyledText color="third" fontSize="subheading" secondFont={true}>
               {item.note}
             </StyledText>
           </View>

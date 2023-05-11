@@ -21,7 +21,8 @@ const theme = {
     bold: 700,
   },
   fontFamily: {
-    main: "sans-serif",
+    main: "Nunito",
+    secondary: "Dancing Script",
   },
 };
 export default theme;

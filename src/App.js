@@ -1,14 +1,14 @@
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useFonts } from "expo-font";
 import { statusBarHeight } from "expo-constants";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import theme from "./theme/theme.js";
-import ListScreen from "./screens/ListScreen";
 import DeleteModal from "./components/modals/DeleteModal";
 import StyledBtn from "./components/styles/StyledBtn.jsx";
-import FavoriteList from "./screens/FavoriteList.jsx";
+import { FavoriteList, ListScreen } from "./screens/index.js";
 
 export default function App() {
   const noteId = uuid();
@@ -37,6 +37,11 @@ export default function App() {
     setNotes(notes);
     setModal(!modal);
   };
+
+  useFonts({
+    ["Nunito"]: require("../assets/fonts/Nunito-VariableFont_wght.ttf"),
+    ["Dancing Script"]: require("../assets/fonts/DancingScript-VariableFont_wght.ttf"),
+  });
 
   return (
     <SafeAreaView style={styles.root}>
@@ -67,6 +72,7 @@ export default function App() {
     </SafeAreaView>
   );
 }
+
 const styles = StyleSheet.create({
   root: {
     flex: 1,

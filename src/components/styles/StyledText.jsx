@@ -7,6 +7,7 @@ export default function StyledText({
   color,
   fontSize,
   fontWeight,
+  secondFont,
   props,
 }) {
   const textStyles = [
@@ -17,6 +18,7 @@ export default function StyledText({
     fontSize === "subheading" && styles.subHeading,
     fontSize === "title" && styles.title,
     fontWeight === "bold" && styles.bold,
+    secondFont && styles.secondText,
   ];
 
   return <Text style={textStyles}>{children}</Text>;
@@ -29,7 +31,9 @@ const styles = StyleSheet.create({
     fontFamily: theme.fontFamily.main,
     fontWeight: theme.fontWeights.normal,
   },
-
+  secondText: {
+    fontFamily: theme.fontFamily.secondary,
+  },
   bold: {
     fontWeight: theme.fontWeights.bold,
   },
