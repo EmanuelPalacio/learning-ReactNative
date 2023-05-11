@@ -1,11 +1,11 @@
 import { FlatList, StyleSheet, TouchableOpacity } from "react-native";
 import { View } from "react-native";
 import { useState } from "react";
-import { AntDesign } from "@expo/vector-icons";
+import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import { StyledBtn, StyledInput, StyledText } from "../components/styles/index";
 import theme from "../theme/theme";
 
-export default function ListScreen({ notes, addNote, viewModal }) {
+export default function ListScreen({ notes, addNote, viewModal, favorite }) {
   const [note, setNote] = useState("");
   const handleNote = (text) => {
     setNote(text);
@@ -35,21 +35,29 @@ export default function ListScreen({ notes, addNote, viewModal }) {
         data={notes}
         keyExtractor={(item) => item.noteId}
         renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.note}
-            onPress={() => viewModal(item.noteId)}
-          >
-            <AntDesign
-              name="delete"
-              size={20}
-              color="black"
+          <View style={styles.note}>
+            <TouchableOpacity
+              style={styles.favorite}
+              onPress={() => favorite(item.noteId)}
+            >
+              <FontAwesome
+                name="star"
+                size={20}
+                color={
+                  item.favorite ? theme.colors.third : theme.colors.primary
+                }
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
               style={styles.delete}
-            />
-
+              onPress={() => viewModal(item.noteId)}
+            >
+              <AntDesign name="delete" size={20} color="black" />
+            </TouchableOpacity>
             <StyledText color="third" fontSize="subheading">
               {item.note}
             </StyledText>
-          </TouchableOpacity>
+          </View>
         )}
       />
     </View>
@@ -81,7 +89,12 @@ const styles = StyleSheet.create({
   },
   delete: {
     position: "absolute",
-    right: 5,
     top: 5,
+    right: 5,
+  },
+  favorite: {
+    position: "absolute",
+    top: 5,
+    right: 40,
   },
 });

@@ -4,17 +4,27 @@ import { StyleSheet } from "react-native";
 import theme from "../../theme/theme";
 import StyledText from "./StyledText";
 
-export default function StyledBtn({ text, action, width, height }) {
+export default function StyledBtn({
+  text,
+  action,
+  width,
+  height,
+  fontSize,
+  restStyleProps,
+}) {
   const btn = [
     styles.button,
     {
       width: width ? width : 300,
       height: height ? height : 50,
     },
+    restStyleProps,
   ];
   return (
     <TouchableOpacity style={btn} onPress={action}>
-      <StyledText color="third">{text}</StyledText>
+      <StyledText color="third" fontSize={fontSize && fontSize}>
+        {text}
+      </StyledText>
     </TouchableOpacity>
   );
 }
