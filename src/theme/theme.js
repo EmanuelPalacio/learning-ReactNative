@@ -1,15 +1,15 @@
 const theme = {
   colors: {
-    primary: "#20242A",
-    secondary: "#76F4DE",
-    third: "#004EBD",
-    fourth: "#CFDAFB",
-    primaryText: "#CFDAFB",
-    secondaryText: "#8690B1",
-    thirdText: "#20242A",
+    primary: '#20242A',
+    secondary: '#76F4DE',
+    third: '#004EBD',
+    fourth: '#CFDAFB',
+    primaryText: '#CFDAFB',
+    secondaryText: '#8690B1',
+    thirdText: '#20242A',
   },
   alertColors: {
-    warning: "red",
+    warning: 'red',
   },
   fontSizes: {
     body: 16,
@@ -21,8 +21,8 @@ const theme = {
     bold: 700,
   },
   fontFamily: {
-    main: "Nunito",
-    secondary: "Dancing Script",
+    main: 'Nunito',
+    secondary: 'Dancing Script',
   },
-};
-export default theme;
+}
+export default theme
