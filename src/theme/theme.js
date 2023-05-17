@@ -14,6 +14,7 @@ const theme = {
     warning: 'red',
   },
   fontSizes: {
+    small: 16,
     text: 18,
     subTitle: 24,
     title: 30,

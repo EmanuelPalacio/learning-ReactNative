@@ -13,6 +13,9 @@ const styles = StyleSheet.create({
   third: {
     color: theme.colorText.thirdText,
   },
+  smallText: {
+    fontSize: theme.fontSizes.small,
+  },
   title: {
     fontFamily: theme.fontFamily.title,
     fontSize: theme.fontSizes.title,

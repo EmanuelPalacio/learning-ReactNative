@@ -11,6 +11,7 @@ export default function StyledText({
 }) {
   const settings = [
     styles.default,
+    fontSize === 'small' && styles.smallText,
     fontSize === 'title' && fontTitle && styles.title,
     fontSize === 'title' && !fontTitle && styles.titleText,
     fontSize === 'subTitle' && fontTitle && styles.subTitle,

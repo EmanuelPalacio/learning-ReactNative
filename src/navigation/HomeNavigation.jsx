@@ -1,6 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack'
 import navRoutes from '../models/navigationRoutes'
-import { HomeScreen, LoginScreen } from '../screens'
+import { HomeScreen, LoginScreen, RegisterScreen } from '../screens'
 
 function HomeNavigation() {
   const Home = createStackNavigator()
@@ -14,6 +14,10 @@ function HomeNavigation() {
     >
       <Home.Screen name={navRoutes.homeRoutes.home} component={HomeScreen} />
       <Home.Screen name={navRoutes.homeRoutes.login} component={LoginScreen} />
+      <Home.Screen
+        name={navRoutes.homeRoutes.register}
+        component={RegisterScreen}
+      />
     </Home.Navigator>
   )
 }
