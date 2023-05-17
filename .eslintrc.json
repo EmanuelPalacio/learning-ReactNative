@@ -16,8 +16,9 @@
     /* "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }] */
     "import/extensions": [
       "error",
-      "ignorePackages"
+      "never"
     ] /* Esta configuración generará un error si no se utiliza una extensión en cualquier declaración de importación, excepto en las importaciones de paquetes. */,
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "react/prop-types": "off"
   }
 }
