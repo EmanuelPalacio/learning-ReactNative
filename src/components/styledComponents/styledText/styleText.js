@@ -21,6 +21,12 @@ const styles = StyleSheet.create({
     fontFamily: theme.fontFamily.title,
     fontSize: theme.fontSizes.subTitle,
   },
+  titleText: {
+    fontSize: theme.fontSizes.title,
+  },
+  subTitleText: {
+    fontSize: theme.fontSizes.subTitle,
+  },
   boldText: {
     fontFamily: theme.fontSizes.textBold,
   },

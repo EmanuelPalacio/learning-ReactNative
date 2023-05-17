@@ -6,16 +6,16 @@ import { StyledButton, StyledText } from '../../components'
 import navRoutes from '../../models/navigationRoutes'
 
 function HomeScreen() {
-  const navigate = useNavigation()
+  const { navigate } = useNavigation()
   return (
     <View style={styles.container}>
       <View style={styles.titleAndLogo}>
         <SvgUri uri='https://res.cloudinary.com/di1g1ylxi/image/upload/v1684247999/TechTalk/Logo_a9fmsp.svg' />
         <View style={styles.title}>
-          <StyledText bold fontSize='title'>
+          <StyledText bold fontSize='title' titleFont>
             ¡Bienvenido a{' '}
           </StyledText>
-          <StyledText bold fontSize='title' color='third'>
+          <StyledText bold fontSize='title' color='third' titleFont>
             TechTalk!
           </StyledText>
         </View>
