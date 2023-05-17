@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSizes.subTitle,
     color: theme.colorText.secondaryText,
   },
-  second: {
+  secondText: {
     color: theme.colorText.primaryText,
   },
   alternativeSize: {
@@ -24,6 +24,17 @@ const styles = StyleSheet.create({
     backgroundColor: theme.color.secondary,
     borderBottomLeftRadius: 50,
     borderTopRightRadius: 50,
+  },
+  secondBtn: {
+    backgroundColor: theme.color.primary,
+    borderWidth: 1,
+    borderColor: theme.color.secondary,
+  },
+  reversedBorder: {
+    borderBottomLeftRadius: 0,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 50,
+    borderTopLeftRadius: 50,
   },
 })
 export default styles

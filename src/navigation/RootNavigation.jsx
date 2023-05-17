@@ -1,5 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native'
-import HomeNavigation from './HomeNavigation.jsx'
+import HomeNavigation from './HomeNavigation'
 
 function RootNavegation() {
   return (

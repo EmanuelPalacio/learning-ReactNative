@@ -1,17 +1,18 @@
 import { createStackNavigator } from '@react-navigation/stack'
-import HomeScreen from '../screens/home/HomeScreen.jsx'
+import HomeScreen from '../screens/home/HomeScreen'
+import navRoutes from '../models/navigationRoutes'
 
 function HomeNavigation() {
   const Home = createStackNavigator()
 
   return (
     <Home.Navigator
-      initialRouteName='Home'
+      initialRouteName={navRoutes.homeRoutes.home}
       screenOptions={{
         headerShown: false,
       }}
     >
-      <Home.Screen name='Home' component={HomeScreen} />
+      <Home.Screen name={navRoutes.homeRoutes.home} component={HomeScreen} />
     </Home.Navigator>
   )
 }

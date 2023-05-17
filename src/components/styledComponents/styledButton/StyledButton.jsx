@@ -6,16 +6,24 @@ export default function StyledButton({
   alternativeSize,
   second,
   bold,
+  reversedBorder,
+  onPress,
+  restStyleBtnProps,
 }) {
   const textConfig = [
     styles.defaultText,
     alternativeSize && styles.alternativeSize,
-    second && styles.second,
+    second && styles.secondText,
     bold && styles.bold,
   ]
-  const btnConfig = [styles.defaultBtn]
+  const btnConfig = [
+    styles.defaultBtn,
+    second && styles.secondBtn,
+    reversedBorder && styles.reversedBorder,
+    restStyleBtnProps,
+  ]
   return (
-    <TouchableOpacity style={btnConfig}>
+    <TouchableOpacity style={btnConfig} onPress={onPress}>
       <Text style={textConfig}>{children}</Text>
     </TouchableOpacity>
   )

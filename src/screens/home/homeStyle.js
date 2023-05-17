@@ -16,6 +16,9 @@ const styles = StyleSheet.create({
   title: {
     flexDirection: 'row',
   },
+  navigation: {
+    gap: 10,
+  },
   navRegister: {
     alignSelf: 'flex-end',
   },
