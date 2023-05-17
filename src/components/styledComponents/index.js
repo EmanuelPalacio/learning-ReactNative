@@ -1,0 +1,6 @@
+export { default as StyledButton } from './styledButton/StyledButton'
+export { default as styleButton } from './styledButton/styleButton'
+export { default as StyledInput } from './styledInput/StyledInput'
+export { default as styleInput } from './styledInput/styleInput'
+export { default as StyledText } from './styledText/StyledText'
+export { default as styleText } from './styledText/styleText'

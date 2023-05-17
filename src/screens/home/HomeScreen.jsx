@@ -2,8 +2,9 @@ import { SvgUri } from 'react-native-svg'
 import { View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import styles from './homeStyle'
-import { StyledButton, StyledText } from '../../components'
+import { StyledButton, StyledText } from '../../components/styledComponents'
 import navRoutes from '../../models/navigationRoutes'
+import { HiRobot } from '../../components/svgComponents'
 
 function HomeScreen() {
   const { navigate } = useNavigation()
@@ -21,7 +22,7 @@ function HomeScreen() {
         </View>
       </View>
       <View style={styles.robot}>
-        <SvgUri uri='https://res.cloudinary.com/di1g1ylxi/image/upload/v1684266582/TechTalk/HiRobot_ecneaw.svg' />
+        <HiRobot />
       </View>
       <View style={styles.navigation}>
         <StyledButton onPress={() => navigate(navRoutes.homeRoutes.login)}>

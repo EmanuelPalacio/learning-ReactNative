@@ -16,6 +16,10 @@ const styles = StyleSheet.create({
   title: {
     flexDirection: 'row',
   },
+  robot: {
+    aspectRatio: 289 / 310, // Proporción original de la SVG, al declarar esta propiedad puedo modificar solo altura o ancho y que se ajuste automaticamente. La svg no tiene que tener alto y ancho declarados.
+    height: '40%',
+  },
   navigation: {
     gap: 10,
   },
