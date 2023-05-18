@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: '50%',
     width: '100%',
-    gap: 10,
+    gap: 15,
   },
   forgotPass: {
     alignSelf: 'flex-end',
