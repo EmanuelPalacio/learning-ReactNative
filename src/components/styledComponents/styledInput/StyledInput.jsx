@@ -8,6 +8,9 @@ export default function StyledFunction({
   secondIcon,
   placeholder,
   password,
+  name,
+  value,
+  onChange,
 }) {
   const [focus, setFocus] = useState(false)
   const [viewPassword, setViewPassword] = useState(password)
@@ -30,6 +33,8 @@ export default function StyledFunction({
           secureTextEntry={viewPassword}
           onFocus={() => setFocus(!focus)}
           onBlur={() => setFocus(!focus)}
+          value={value}
+          onChangeText={(text) => onChange(text, name)}
         />
       </View>
       {secondIcon ? (

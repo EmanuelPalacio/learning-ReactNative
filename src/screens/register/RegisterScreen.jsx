@@ -15,9 +15,16 @@ import {
 import styles from './styleRegister'
 import navRoutes from '../../models/navigationRoutes'
 import StyledLink from '../../components/styledComponents/styledLink/styledLink'
+import useDataCollection from '../../hooks/useDataCollection'
 
 export default function RegisterScreen() {
   const { navigate } = useNavigation()
+  const [data, setData] = useDataCollection({
+    name: '',
+    email: '',
+    password: '',
+    phone: '',
+  })
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -32,14 +39,36 @@ export default function RegisterScreen() {
         </StyledText>
       </View>
       <View style={styles.form}>
-        <StyledInput icon={<Person />} placeholder='Ingrese su nombre' />
-        <StyledInput icon={<Email />} placeholder='Ingrese su nombre' />
-        <StyledInput icon={<Phone />} placeholder='Ingrese su nombre' />
-        <StyledInput icon={<Key />} placeholder='Ingrese su nombre' />
-        <StyledButton>Registrarse</StyledButton>
+        <StyledInput
+          icon={<Person />}
+          placeholder='Ingrese su nombre'
+          onChange={setData}
+          name='name'
+        />
+        <StyledInput
+          icon={<Email />}
+          placeholder='Ingrese su email'
+          onChange={setData}
+          name='email'
+        />
+        <StyledInput
+          icon={<Phone />}
+          placeholder='Ingrese su numero'
+          onChange={setData}
+          name='phone'
+        />
+        <StyledInput
+          icon={<Key />}
+          placeholder='Ingrese su contraseña'
+          onChange={setData}
+          name='password'
+        />
+        <StyledButton onPress={() => console.log(data)}>
+          Registrarse
+        </StyledButton>
         <View style={styles.login}>
           <StyledText fontSize='small'>¿Ya eres miembro? </StyledText>
-          <StyledLink link={() => navigate(navRoutes.homeRoutes.register)}>
+          <StyledLink link={() => navigate(navRoutes.homeRoutes.login)}>
             Inicia sesión
           </StyledLink>
         </View>
