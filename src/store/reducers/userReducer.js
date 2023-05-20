@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    status: 'unauthorized',
+    status: false,
     token: null,
     errorMessage: null,
     user: {},
@@ -21,7 +21,7 @@ const userSlice = createSlice({
     }),
     authorized: (state) => ({
       ...state,
-      status: 'authorized',
+      status: true,
     }),
   },
 })

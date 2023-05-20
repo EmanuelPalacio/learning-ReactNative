@@ -1,4 +1,9 @@
-export default function AuthNavigation() {
+import { useSelector } from 'react-redux'
+import TabNavigation from './TabNavigation'
+import HomeNavigation from './HomeNavigation'
 
-  return()
+export default function AuthNavigation() {
+  const { status } = useSelector((store) => store.user)
+
+  return status ? <TabNavigation /> : <HomeNavigation />
 }

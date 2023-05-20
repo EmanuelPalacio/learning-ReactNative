@@ -1,10 +1,10 @@
 import { NavigationContainer } from '@react-navigation/native'
-import HomeNavigation from './HomeNavigation'
+import AuthNavigation from './AuthNavigation'
 
 function RootNavegation() {
   return (
     <NavigationContainer>
-      <HomeNavigation />
+      <AuthNavigation />
     </NavigationContainer>
   )
 }

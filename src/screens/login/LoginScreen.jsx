@@ -1,5 +1,6 @@
 import { ScrollView, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import { useDispatch } from 'react-redux'
 import styles from './loginStyle'
 import {
   StyledButton,
@@ -10,13 +11,16 @@ import { Email, Key, Eye, HiRobot } from '../../components/svgComponents'
 import StyledLink from '../../components/styledComponents/styledLink/styledLink'
 import navRoutes from '../../models/navigationRoutes'
 import useDataCollection from '../../hooks/useDataCollection'
+import { authorized } from '../../store/reducers/userReducer'
 
 export default function LoginSCreen() {
   const { navigate } = useNavigation()
+  const dispatch = useDispatch()
   const [data, setData /* reset */] = useDataCollection({
     email: '',
     password: '',
   })
+  console.log(data)
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
@@ -48,7 +52,7 @@ export default function LoginSCreen() {
         <StyledLink styleProps={styles.forgotPass}>
           ¿Olvidaste tu contraseña?
         </StyledLink>
-        <StyledButton onPress={() => console.log(data)}>
+        <StyledButton onPress={() => dispatch(authorized())}>
           Iniciar Sesión
         </StyledButton>
         <View style={styles.register}>

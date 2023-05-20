@@ -4,5 +4,11 @@ const navRoutes = Object.freeze({
     login: 'login',
     register: 'register',
   }),
+  tabRoutes: Object.freeze({
+    comunity: 'Comunidad',
+    menssages: 'Mensajes',
+    learn: 'Aprender',
+    user: 'Perfil',
+  }),
 })
 export default navRoutes
