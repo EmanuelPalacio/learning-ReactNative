@@ -3,6 +3,7 @@ import { View } from 'react-native'
 import navRoutes from '../models/navigationRoutes'
 import { InConstruction } from '../screens'
 import theme from '../theme/theme'
+import ProfileNavigation from './ProfileNavigation'
 
 export default function TabNavigation() {
   const Tab = createBottomTabNavigator()
@@ -15,6 +16,7 @@ export default function TabNavigation() {
     >
       <Tab.Navigator
         screenOptions={{
+          headerShown: false,
           tabBarStyle: {
             height: 50,
             borderTopEndRadius: 50,
@@ -40,7 +42,7 @@ export default function TabNavigation() {
         />
         <Tab.Screen
           name={navRoutes.tabRoutes.user}
-          component={InConstruction}
+          component={ProfileNavigation}
         />
       </Tab.Navigator>
     </View>

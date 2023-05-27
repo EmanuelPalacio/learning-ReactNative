@@ -19,6 +19,7 @@
       "never"
     ] /* Esta configuración generará un error si no se utiliza una extensión en cualquier declaración de importación, excepto en las importaciones de paquetes. */,
     "import/prefer-default-export": "off",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "no-console": "warn"
   }
 }
