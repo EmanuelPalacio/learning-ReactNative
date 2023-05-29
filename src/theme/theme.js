@@ -25,5 +25,10 @@ const theme = {
     textRegular: 'Lato-Regular',
     textBold: 'Lato-Bold',
   },
+  tabInactive: {
+    light: '#A9A9A980',
+    normal: '#69696980',
+    dark: '#1D3244',
+  },
 }
 export default theme

@@ -1,6 +1,12 @@
 import { ImageBackground, View, Image } from 'react-native'
 import styles from './profileStyle'
 import { StyledText } from '../../components/styledComponents'
+import {
+  Listening,
+  Reading,
+  Speaking,
+  Writing,
+} from '../../components/svgComponents'
 
 export default function ProfileScreen() {
   return (
@@ -20,6 +26,50 @@ export default function ProfileScreen() {
         />
         <View style={styles.level}>
           <StyledText color='second'>Principiante A2</StyledText>
+        </View>
+      </View>
+      <View style={styles.infoUser}>
+        <StyledText color='third' fontSize='title' bold fontTitle>
+          Emanuel Palacio
+        </StyledText>
+        <StyledText bold>Desarrollador Web</StyledText>
+      </View>
+      <View style={styles.cardContainer}>
+        <View style={styles.card}>
+          <Listening />
+          <StyledText color='second' fontSize='subTitle'>
+            Listening
+          </StyledText>
+          <StyledText color='second' fontSize='subTitle'>
+            B1
+          </StyledText>
+        </View>
+        <View style={styles.card}>
+          <Reading />
+          <StyledText color='second' fontSize='subTitle'>
+            Reading
+          </StyledText>
+          <StyledText color='second' fontSize='subTitle'>
+            B1
+          </StyledText>
+        </View>
+        <View style={styles.card}>
+          <Speaking />
+          <StyledText color='second' fontSize='subTitle'>
+            Speaking
+          </StyledText>
+          <StyledText color='second' fontSize='subTitle'>
+            B1
+          </StyledText>
+        </View>
+        <View style={styles.card}>
+          <Writing />
+          <StyledText color='second' fontSize='subTitle'>
+            Writing
+          </StyledText>
+          <StyledText color='second' fontSize='subTitle'>
+            B1
+          </StyledText>
         </View>
       </View>
     </View>

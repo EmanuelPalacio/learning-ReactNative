@@ -6,7 +6,7 @@ export default function StyledText({
   bold,
   fontSize,
   color,
-  titleFont: fontTitle,
+  fontTitle,
   restStyledProps,
 }) {
   const settings = [
