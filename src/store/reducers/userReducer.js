@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
+import authStatus from '../../models/authStatus'
 
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    status: false,
+    status: authStatus.unauthorized,
     token: null,
     errorMessage: null,
     user: {},
@@ -11,19 +12,20 @@ const userSlice = createSlice({
   reducers: {
     logIn: (state, action) => ({
       ...state,
-      token: action.payload.token,
+      /* token: action.payload.token, */
       user: action.payload.user,
+      status: action.payload.status,
     }),
     logOut: (state) => ({
       ...state,
-      status: 'unauthorized',
+      status: authStatus.unauthorized,
       user: {},
     }),
-    authorized: (state) => ({
+    check: (state, action) => ({
       ...state,
-      status: true,
+      status: action.payload.status,
     }),
   },
 })
 export default userSlice.reducer
-export const { logIn, logOut, authorized } = userSlice.actions
+export const { logIn, logOut, check } = userSlice.actions

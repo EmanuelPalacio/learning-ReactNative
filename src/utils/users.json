@@ -1,0 +1,15 @@
+[
+  {
+    "email": "admin@techtalk.com",
+    "fullname": "Emanuel Palacio",
+    "backgroundImage": "https://res.cloudinary.com/dshfifpgv/image/upload/v1681088243/Images%20proyect%20techTalk/TechTalkAssets/Defaut%20avatar%20profile/backgroundDefault_xqafes.png",
+    "profileImg": "https://res.cloudinary.com/dshfifpgv/image/upload/v1681086310/Images%20proyect%20techTalk/TechTalkAssets/Defaut%20avatar%20profile/Avatar_bczsp0.jpg",
+    "learningLevel": {
+      "global": "A2",
+      "reading": "A1",
+      "listening": "A2",
+      "writing": "B1",
+      "speaking": "A1"
+    }
+  }
+]

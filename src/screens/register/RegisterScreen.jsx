@@ -14,7 +14,7 @@ import {
 } from '../../components/styledComponents'
 import styles from './styleRegister'
 import navRoutes from '../../models/navigationRoutes'
-import StyledLink from '../../components/styledComponents/styledLink/styledLink'
+import StyledLink from '../../components/styledComponents/styledLink/StyledLink'
 import useDataCollection from '../../hooks/useDataCollection'
 
 export default function RegisterScreen() {

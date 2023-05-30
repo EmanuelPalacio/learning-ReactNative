@@ -1,4 +1,5 @@
 import { ImageBackground, View, Image } from 'react-native'
+import { useSelector } from 'react-redux'
 import styles from './profileStyle'
 import { StyledText } from '../../components/styledComponents'
 import {
@@ -9,23 +10,27 @@ import {
 } from '../../components/svgComponents'
 
 export default function ProfileScreen() {
+  const { user } = useSelector((store) => store.user)
+  console.log('🚀 ~ file: ProfileScreen.jsx:14 ~ ProfileScreen ~ user:', user)
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <ImageBackground
           style={styles.background}
           source={{
-            uri: 'https://res.cloudinary.com/dshfifpgv/image/upload/v1681088243/Images%20proyect%20techTalk/TechTalkAssets/Defaut%20avatar%20profile/backgroundDefault_xqafes.png',
+            uri: user.backgroundImage,
           }}
         />
         <Image
           style={styles.profileImage}
           source={{
-            uri: 'https://res.cloudinary.com/dshfifpgv/image/upload/v1681086310/Images%20proyect%20techTalk/TechTalkAssets/Defaut%20avatar%20profile/Avatar_bczsp0.jpg',
+            uri: user.profileImg,
           }}
         />
         <View style={styles.level}>
-          <StyledText color='second'>Principiante A2</StyledText>
+          <StyledText color='second'>
+            Principiante {user.learningLevel.global}
+          </StyledText>
         </View>
       </View>
       <View style={styles.infoUser}>
@@ -41,7 +46,7 @@ export default function ProfileScreen() {
             Listening
           </StyledText>
           <StyledText color='second' fontSize='subTitle'>
-            B1
+            {user.learningLevel.listening}
           </StyledText>
         </View>
         <View style={styles.card}>
@@ -50,7 +55,7 @@ export default function ProfileScreen() {
             Reading
           </StyledText>
           <StyledText color='second' fontSize='subTitle'>
-            B1
+            {user.learningLevel.reading}
           </StyledText>
         </View>
         <View style={styles.card}>
@@ -59,7 +64,7 @@ export default function ProfileScreen() {
             Speaking
           </StyledText>
           <StyledText color='second' fontSize='subTitle'>
-            B1
+            {user.learningLevel.speaking}
           </StyledText>
         </View>
         <View style={styles.card}>
@@ -68,7 +73,7 @@ export default function ProfileScreen() {
             Writing
           </StyledText>
           <StyledText color='second' fontSize='subTitle'>
-            B1
+            {user.learningLevel.writing}
           </StyledText>
         </View>
       </View>
