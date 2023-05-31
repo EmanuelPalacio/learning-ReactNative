@@ -10,5 +10,13 @@ const navRoutes = Object.freeze({
     learn: 'Aprender',
     user: 'Perfil',
   }),
+  learningRoutes: Object.freeze({
+    home: 'learning',
+    activities: 'activities',
+    reading: 'reading',
+    writing: 'writing',
+    speaking: 'speaking',
+    listening: 'listening',
+  }),
 })
 export default navRoutes

@@ -10,6 +10,7 @@ import {
   TabLearning,
   TabProfile,
 } from '../components/svgComponents'
+import LearningNavigation from './LearningNavigation'
 
 export default function TabNavigation() {
   const renderTabIcon = (focused, Component) => <Component focused={focused} />
@@ -53,7 +54,7 @@ export default function TabNavigation() {
         />
         <Tab.Screen
           name={navRoutes.tabRoutes.learn}
-          component={InConstruction}
+          component={LearningNavigation}
           options={{
             tabBarIcon: ({ focused }) => renderTabIcon(focused, TabLearning),
           }}
