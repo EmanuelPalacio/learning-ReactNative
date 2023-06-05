@@ -2,9 +2,10 @@ import { View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import {
   Email,
+  Eye,
   Key,
   Person,
-  Phone,
+  /* Phone, */
   RegisterRobot,
 } from '../../components/svgComponents'
 import {
@@ -16,6 +17,7 @@ import styles from './styleRegister'
 import navRoutes from '../../models/navigationRoutes'
 import StyledLink from '../../components/styledComponents/styledLink/StyledLink'
 import useDataCollection from '../../hooks/useDataCollection'
+import { createUserService } from '../../services/Firebase'
 
 export default function RegisterScreen() {
   const { navigate } = useNavigation()
@@ -25,6 +27,14 @@ export default function RegisterScreen() {
     password: '',
     phone: '',
   })
+  const register = async (info) => {
+    try {
+      await createUserService({ ...info })
+    } catch (error) {
+      console.log('🚀 ~ file: RegisterScreen.jsx:34 ~ register ~ error:', error)
+    }
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -51,21 +61,21 @@ export default function RegisterScreen() {
           onChange={setData}
           name='email'
         />
-        <StyledInput
+        {/* <StyledInput
           icon={<Phone />}
           placeholder='Ingrese su numero'
           onChange={setData}
           name='phone'
-        />
+        /> */}
         <StyledInput
           icon={<Key />}
           placeholder='Ingrese su contraseña'
-          onChange={setData}
+          password
+          secondIcon={<Eye />}
           name='password'
+          onChange={setData}
         />
-        <StyledButton onPress={() => console.log(data)}>
-          Registrarse
-        </StyledButton>
+        <StyledButton onPress={() => register(data)}>Registrarse</StyledButton>
         <View style={styles.login}>
           <StyledText fontSize='small'>¿Ya eres miembro? </StyledText>
           <StyledLink link={() => navigate(navRoutes.homeRoutes.login)}>

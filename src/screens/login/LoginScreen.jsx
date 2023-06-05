@@ -13,55 +13,22 @@ import navRoutes from '../../models/navigationRoutes'
 import useDataCollection from '../../hooks/useDataCollection'
 import { check, logIn } from '../../store/reducers/userReducer'
 import authStatus from '../../models/authStatus'
-import jsonLogin from '../../utils/login.json'
-import jsonUser from '../../utils/users.json'
+import { authService } from '../../services/Firebase'
 
 export default function LoginSCreen() {
-  const dataLogin = JSON.parse(JSON.stringify(jsonLogin))
-  const dataUser = JSON.parse(JSON.stringify(jsonUser))
   const { navigate } = useNavigation()
   const dispatch = useDispatch()
   const [data, setData /* reset */] = useDataCollection({
     email: '',
     password: '',
   })
-  const simulacion = () =>
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const checking = dataLogin.some(
-          (elem) => elem.email === data.email && elem.password === data.password
-        )
-
-        if (checking) {
-          const info = dataUser.find((e) => e.email === data.email)
-          console.log(
-            '🚀 ~ file: LoginScreen.jsx:37 ~ setTimeout ~ info:',
-            info
-          )
-          resolve(info) // Resolver la promesa con los datos comprados
-        } else {
-          const error = 'Error en los datos' // Supongamos que hay un error en los datos
-          reject(error, checking) // Rechazar la promesa con el error
-        }
-      }, 1000)
-    })
   const login = async () => {
     dispatch(check({ status: authStatus.checking }))
-
     try {
-      const userData = await simulacion()
-      if (userData) {
-        dispatch(
-          logIn({
-            status: authStatus.authorized,
-            user: {
-              ...userData,
-            },
-          })
-        )
-      }
+      const user = await authService({ ...data })
+      dispatch(logIn(user))
     } catch (error) {
-      console.log('🚀 ~ file: LoginScreen.jsx:57 ~ login ~ error:', error)
+      dispatch(check({ status: authStatus.unauthorized }))
     }
   }
 

@@ -41,7 +41,7 @@ export default function App() {
     <SafeAreaView style={styles.container} onLayout={onLayoutRootView}>
       <StatusBar
         hidden={false}
-        style='dark'
+        style='auto'
         backgroundColor={theme.color.primary}
       />
       <Provider store={store}>

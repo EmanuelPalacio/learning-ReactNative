@@ -6,15 +6,14 @@ const userSlice = createSlice({
   initialState: {
     status: authStatus.unauthorized,
     token: null,
-    errorMessage: null,
     user: {},
   },
   reducers: {
     logIn: (state, action) => ({
       ...state,
       /* token: action.payload.token, */
-      user: action.payload.user,
-      status: action.payload.status,
+      user: action.payload,
+      status: authStatus.authorized,
     }),
     logOut: (state) => ({
       ...state,
