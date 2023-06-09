@@ -11,9 +11,7 @@ import {
 import { Email, Key, Eye, HiRobot } from '../../components/svgComponents'
 import navRoutes from '../../models/navigationRoutes'
 import useDataCollection from '../../hooks/useDataCollection'
-import { check, logIn } from '../../store/reducers/userReducer'
-import authStatus from '../../models/authStatus'
-import { authService } from '../../services/Firebase'
+import { login } from '../../store/reducers/userReducer'
 
 export default function LoginSCreen() {
   const { navigate } = useNavigation()
@@ -22,15 +20,6 @@ export default function LoginSCreen() {
     email: '',
     password: '',
   })
-  const login = async () => {
-    dispatch(check({ status: authStatus.checking }))
-    try {
-      const user = await authService({ ...data })
-      dispatch(logIn(user))
-    } catch (error) {
-      dispatch(check({ status: authStatus.unauthorized }))
-    }
-  }
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -63,7 +52,9 @@ export default function LoginSCreen() {
         <StyledLink styleProps={styles.forgotPass}>
           ¿Olvidaste tu contraseña?
         </StyledLink>
-        <StyledButton onPress={login}>Iniciar Sesión</StyledButton>
+        <StyledButton onPress={() => dispatch(login(data))}>
+          Iniciar Sesión
+        </StyledButton>
         <View style={styles.register}>
           <StyledText fontSize='small'>¿No eres miembro? </StyledText>
           <StyledLink link={() => navigate(navRoutes.homeRoutes.register)}>

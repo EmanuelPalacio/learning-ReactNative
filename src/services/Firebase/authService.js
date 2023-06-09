@@ -10,7 +10,7 @@ const authService = async ({ email, password }) => {
     console.log('🚀 ~ file: authService.js:10 ~ authService ~ user:', user)
     return userDataAdapter(user)
   } catch (error) {
-    return error.code
+    throw error.code
   }
 }
 export default authService
