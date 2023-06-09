@@ -35,6 +35,10 @@ const userSlice = createSlice({
       ...state,
       status: action.payload.status,
     }),
+    resetError: (state) => ({
+      ...state,
+      error: null,
+    }),
   },
   extraReducers: (builder) => {
     builder
@@ -55,4 +59,4 @@ const userSlice = createSlice({
   },
 })
 export default userSlice.reducer
-export const { logIn, logOut, check } = userSlice.actions
+export const { logIn, logOut, check, resetError } = userSlice.actions
