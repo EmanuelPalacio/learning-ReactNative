@@ -1,24 +1,20 @@
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  updateProfile,
-  deleteUser,
+  /* deleteUser, */
 } from 'firebase/auth'
 import firebase from './firebase'
+import addUser from './usersDB/addUser'
+import userDataAdapter from '../../adapters/userDataAdapter'
 
 const auth = getAuth(firebase)
-const createUserService = async ({ email, password, name }) => {
+const createUserService = async ({ email, password, phone, name }) => {
   try {
-    await createUserWithEmailAndPassword(auth, email, password)
-
-    await updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: 'https://example.com/jane-q-user/profile.jpg',
-    })
-
+    const { user } = await createUserWithEmailAndPassword(auth, email, password)
+    const data = userDataAdapter(user, name, phone)
+    addUser(data)
     return auth.currentUser
   } catch (error) {
-    deleteUser(auth.currentUser)
     throw error.code
   }
 }

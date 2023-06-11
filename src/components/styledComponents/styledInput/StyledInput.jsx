@@ -27,6 +27,7 @@ export default function StyledFunction({
       >
         <View style={styles.icon}>{icon}</View>
         <TextInput
+          autoCapitalize='none'
           style={styles.input}
           placeholder={placeholder}
           placeholderTextColor={theme.colorText.primaryText}

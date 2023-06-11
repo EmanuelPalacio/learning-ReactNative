@@ -1,11 +1,12 @@
 import { View } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import { useDispatch } from 'react-redux'
 import {
   Email,
   Eye,
   Key,
   Person,
-  /* Phone, */
+  Phone,
   RegisterRobot,
 } from '../../components/svgComponents'
 import {
@@ -17,9 +18,10 @@ import styles from './styleRegister'
 import navRoutes from '../../models/navigationRoutes'
 import StyledLink from '../../components/styledComponents/styledLink/StyledLink'
 import useDataCollection from '../../hooks/useDataCollection'
-import { createUserService } from '../../services/Firebase'
+import { register } from '../../store/reducers/userReducer'
 
 export default function RegisterScreen() {
+  const dispatch = useDispatch()
   const { navigate } = useNavigation()
   const [data, setData] = useDataCollection({
     name: '',
@@ -27,14 +29,6 @@ export default function RegisterScreen() {
     password: '',
     phone: '',
   })
-  const register = async (info) => {
-    try {
-      await createUserService({ ...info })
-    } catch (error) {
-      console.log('🚀 ~ file: RegisterScreen.jsx:34 ~ register ~ error:', error)
-    }
-  }
-
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -61,12 +55,12 @@ export default function RegisterScreen() {
           onChange={setData}
           name='email'
         />
-        {/* <StyledInput
+        <StyledInput
           icon={<Phone />}
           placeholder='Ingrese su numero'
           onChange={setData}
           name='phone'
-        /> */}
+        />
         <StyledInput
           icon={<Key />}
           placeholder='Ingrese su contraseña'
@@ -75,7 +69,9 @@ export default function RegisterScreen() {
           name='password'
           onChange={setData}
         />
-        <StyledButton onPress={() => register(data)}>Registrarse</StyledButton>
+        <StyledButton onPress={() => dispatch(register(data))}>
+          Registrarse
+        </StyledButton>
         <View style={styles.login}>
           <StyledText fontSize='small'>¿Ya eres miembro? </StyledText>
           <StyledLink link={() => navigate(navRoutes.homeRoutes.login)}>
