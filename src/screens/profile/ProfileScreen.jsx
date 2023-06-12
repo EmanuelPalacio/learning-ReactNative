@@ -11,31 +11,30 @@ import {
 
 export default function ProfileScreen() {
   const { user } = useSelector((store) => store.user)
-  console.log('🚀 ~ file: ProfileScreen.jsx:14 ~ ProfileScreen ~ user:', user)
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <ImageBackground
           style={styles.background}
           source={{
-            uri: user.backgroundImage,
+            uri: user?.backgroundImage,
           }}
         />
         <Image
           style={styles.profileImage}
           source={{
-            uri: user.profileImg,
+            uri: user.profileImage,
           }}
         />
         <View style={styles.level}>
           <StyledText color='second'>
-            Principiante {user.learningLevel.global}
+            Principiante {user.learningLevel?.global || 'A1'}
           </StyledText>
         </View>
       </View>
       <View style={styles.infoUser}>
         <StyledText color='third' fontSize='title' bold fontTitle>
-          Emanuel Palacio
+          {user.fullname}
         </StyledText>
         <StyledText bold>Desarrollador Web</StyledText>
       </View>
@@ -46,7 +45,7 @@ export default function ProfileScreen() {
             Listening
           </StyledText>
           <StyledText color='second' fontSize='subTitle'>
-            {user.learningLevel.listening}
+            {user.learningLevel?.listening || 'A1'}
           </StyledText>
         </View>
         <View style={styles.card}>
@@ -55,7 +54,7 @@ export default function ProfileScreen() {
             Reading
           </StyledText>
           <StyledText color='second' fontSize='subTitle'>
-            {user.learningLevel.reading}
+            {user.learningLevel?.reading || 'A1'}
           </StyledText>
         </View>
         <View style={styles.card}>
@@ -64,7 +63,7 @@ export default function ProfileScreen() {
             Speaking
           </StyledText>
           <StyledText color='second' fontSize='subTitle'>
-            {user.learningLevel.speaking}
+            {user.learningLevel?.speaking || 'A1'}
           </StyledText>
         </View>
         <View style={styles.card}>
@@ -73,7 +72,7 @@ export default function ProfileScreen() {
             Writing
           </StyledText>
           <StyledText color='second' fontSize='subTitle'>
-            {user.learningLevel.writing}
+            {user.learningLevel?.writing || 'A1'}
           </StyledText>
         </View>
       </View>

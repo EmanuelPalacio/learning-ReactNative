@@ -13,7 +13,7 @@ const createUserService = async ({ email, password, phone, name }) => {
     const { user } = await createUserWithEmailAndPassword(auth, email, password)
     const data = userDataAdapter(user, name, phone)
     addUser(data)
-    return auth.currentUser
+    return data
   } catch (error) {
     throw error.code
   }

@@ -61,7 +61,6 @@ const userSlice = createSlice({
         status: authStatus.unauthorized,
         error: action.error.message,
       }))
-    builder
       .addCase(register.pending, (state) => ({
         ...state,
         status: authStatus.checking,
